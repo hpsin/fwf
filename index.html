@@ -11,17 +11,13 @@
 		
 			<div id="events_block">
 				{% for event in events %}
-					{% if event.user %}
-						<b>{{ event.user.id }}</b> wrote:
-					{% else %}
-						An anonymous person wrote:
-					{% endif %}
-					<blockquote>{{ event.description|escape }}</blockquote>
+					<b>{{ event.title|escape }}</b>
+					{{ event.dateStart }} - {{ event.location|escape }}
 				{% endfor %}
 			</div>
 		
 			<div id="create_block">
-				<form action="/MakeEvent?s" method="post">
+				<form action="/MakeEvent" method="post">
 				<fieldset>
 					<legend>Personal information:</legend>
 					Event Name: <input type="text" name="name" size="30" /><br />
@@ -31,7 +27,7 @@
 					<br />
 					<input type="submit" value="Submit" />
 				</fieldset>
-			</form>
+				</form>
 			</div>
 			<div id="footer">
 			<p> Friends with Food &copy; 2012 </p>
