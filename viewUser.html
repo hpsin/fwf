@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<link href="stylesheets/main.css" rel="stylesheet" type="text/css" />
+		<script src="js/gen_validatorv4.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1> Friends with Food </h1>
+				<a href= "{{ user.getUserLink }}" >Your Profile</a> - <a href="/">Home</a>
+				<hr>
+			</div>
+			<div id="create_block">
+				{{ nickname }}
+				<blockquote> Good Events: {{ user.goodEventsCount }}
+				{% if user.verified %}
+				<br>Verified
+				{% endif %}
+			</div>
+
+			<div id="events_block">
+				<h2>Events</h2>
+
+			</div>
+		
+
+			<div id="footer">
+				<p> Friends with Food &copy; 2013 </p>
+			</div>
+		</div>
+	</body>
+</html>

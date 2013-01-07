@@ -17,8 +17,10 @@ class AppUser(db.Model):
 	@staticmethod
 	def registerUser():
 		"""Constructor for the AppUser class"""
-		user = AppUser()
-		user.id = users.get_current_user()
+		id=users.get_current_user()
+		key=id.email().split('@')[0]
+		user = AppUser(key_name=key)
+		user.id = id
 		user.verified=False
 		user.banned=False
 		user.premium=False	
@@ -36,9 +38,16 @@ class AppUser(db.Model):
 		if userList == []:		# Wasn't found
 			return AppUser.registerUser()
 		return userList[0]
-		
-			
+	
+	@property	
+	def getUserLink(self):
+		return """/User/"""+str(self.key().name())
 
+	@staticmethod
+	def getUserFromKey(key):
+		""" Retrieves an AppUser object from the """
+		#get(Key(key))
+		#return None if no user found
 	
 	def banUser(self):
 		"""Initiates the banhammer"""

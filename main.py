@@ -23,10 +23,12 @@ from dbClasses import AppUser
 
 import gQuery
 
-from eventInteraction import Make as MakeEvent
-from eventInteraction import Report as ReportEvent
-from eventInteraction import Attend as AttendEvent
-from eventInteraction import Verify as VerifyEvent
+from eventInteraction import Make
+from eventInteraction import Report
+from eventInteraction import Attend
+from eventInteraction import Verify
+
+from Views import ViewUser
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -55,15 +57,19 @@ class IntroPage(webapp2.RequestHandler):
 			'events': events,
 			'url': url,
 			'url_linktext': url_linktext,
+			"user":user,
+			"message":message,
+			"pageNum":pageNum
 		}
 		
-		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		path = os.path.join(os.path.dirname(__file__), 'main.html')
 		self.response.out.write(template.render(path, template_values))
 		
 
 app = webapp2.WSGIApplication([('/',IntroPage),
-								('/MakeEvent', MakeEvent),
-								('/ReportEvent', ReportEvent),
-								('/AttendEvent', AttendEvent),
-								('/VerifyEvent', VerifyEvent)],
+								('/Make', Make),
+								('/Report', Report),
+								('/Attend', Attend),
+								('/Verify', Verify),
+								('/User/.*', ViewUser)],
                               debug=True)

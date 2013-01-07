@@ -43,7 +43,7 @@ class Make(webapp2.RequestHandler):
 		locationV=getString("location", self)
 		dateStartV=getDate("start", self)
 		event = Event(creator=creatorV,name=nameV, location=locationV, dateStart=dateStartV)
-		event.dateEnd=getString("end", self)
+		event.dateEnd=getDate("end", self)
 		event.description=getString("description", self)
 		event.host=getString("host", self)
 		event.verified=creatorV.verified
