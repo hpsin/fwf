@@ -62,7 +62,7 @@ class IntroPage(webapp2.RequestHandler):
 			"pageNum":pageNum
 		}
 		
-		path = os.path.join(os.path.dirname(__file__), 'main.html')
+		path = os.path.join(os.path.dirname(__file__), './templates/main.html')
 		self.response.out.write(template.render(path, template_values))
 		
 
