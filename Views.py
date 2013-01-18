@@ -27,7 +27,7 @@ class ViewUser(webapp2.RequestHandler):
 		#Verified status
 		#Events (later)
 		
-		path = os.path.join(os.path.dirname(__file__), 'viewUser.html')
+		path = os.path.join(os.path.dirname(__file__), './templates/viewUser.html')
 		self.response.out.write(template.render(path, template_values))
 		
 		
