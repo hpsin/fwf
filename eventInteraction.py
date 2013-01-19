@@ -40,6 +40,7 @@ class Make(webapp2.RequestHandler):
 	def post(self):
 		creatorV = AppUser.getUser()
 		nameV=getString("name", self)
+		dateV=getString("date", self)
 		locationV=getString("location", self)
 		dateStartV=getDate("start", self)
 		event = Event(creator=creatorV,name=nameV, location=locationV, dateStart=dateStartV)

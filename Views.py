@@ -35,4 +35,11 @@ class ViewEvent(webapp2.RequestHandler):
 	def get(self):
 		eventKey=self.request.path[6:] #Chops off the end of the request path to get the user key
 		event=Event.get(eventKey)
-		templateValues
+		template_values = {
+			'nickname':nickname,
+			'user':user,
+			'events':[]	
+		}
+		
+		path = os.path.join(os.path.dirname(__file__), './templates/viewEvent.html')
+		self.response.out.write(template.render(path, template_values))
