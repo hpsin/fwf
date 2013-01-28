@@ -139,4 +139,6 @@ class Event(db.Model):
 		<verified>""" + ("1" if self.verified else "0") + """</verified>
 		<key>""" + self.key() + """</key>
 		</Event>"""
-		
+
+	def getEventLink(self):
+		return '/?' + urllib.urlencode({'message':'''Event pages coming soon'''}) #Update to actual page.

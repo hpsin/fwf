@@ -47,8 +47,18 @@ class Make(webapp2.RequestHandler):
 
 	def get(self):
 		user=AppUser.getUser()
+		
+		if users.get_current_user():
+			url = users.create_logout_url(self.request.uri)
+			url_linktext = 'Logout'
+		else:
+			url = users.create_login_url(self.request.uri)
+			url_linktext = 'Login'
+			
 		template_values = {
-			"user":user
+			"user":user,
+			'url':url,
+			'url_linktext':url_linktext
 		}
 		path = os.path.join(os.path.dirname(__file__), './templates/make.html')
 		self.response.out.write(template.render(path, template_values))

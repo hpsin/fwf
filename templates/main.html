@@ -1,21 +1,27 @@
+<!DOCTYPE>
 <html>
 	<head>
-		<link href="stylesheets/main.css" rel="stylesheet" type="text/css" />
+		<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div id="container">
 			<div id="header">
 				<center>{{ message }}</center>
 				<h1> Friends with Food </h1>
-				<a href= "{{ user.getUserLink }}" >Your Profile</a> - <a href="/">Home</a>
-				<a href = "/Make"> Make an Event!</a>
-				<hr>
+				<div id="links">
+					<a href= "{{ user.getUserLink }}" >Your Profile</a> - 
+					<a href="/">Home</a> -
+					<a href = "/Make"> Make an Event!</a>
+				</div>
+				<div id="login">
+					- <a href="{{ url }}">{{ url_linktext }}</a>
+				</div>
 			</div>
 		
 			<div id="events_block">
 				{% for event in events %}
 					<a href='{{ event.getEventLink }}'>
-					<b>{{ event.title|escape }}</b>
+					<b>{{ event.name|escape }}</b>
 					<blockquote>{{ event.dateStart }} - {{ event.location|escape }}</blockquote></a>
 				{% endfor %}
 			</div>
