@@ -63,6 +63,18 @@ a img {
 	padding: 10px 0 0 25px;
 }
 
+#links {
+	position: relative;
+	top: 0;
+	float:left;
+}
+
+#login {
+	position: relative;
+	top: 0;
+	float:left;
+}
+
 #create_block {
 	position: fixed;
 	top: 180px;

@@ -33,7 +33,7 @@ from Views import ViewUser
 from google.appengine.ext import db
 from google.appengine.api import users
 
-class IntroPage(webapp2.RequestHandler):
+class IntroPage(webapp2.RequestHandler):		
     def get(self):
 		limit=20
 	
@@ -48,7 +48,7 @@ class IntroPage(webapp2.RequestHandler):
 		
 		if users.get_current_user():
 			url = users.create_logout_url(self.request.uri)
-			url_linktext = 'Logout'
+			url_linktext = 'Logout'			
 		else:
 			url = users.create_login_url(self.request.uri)
 			url_linktext = 'Login'

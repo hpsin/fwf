@@ -15,10 +15,19 @@ class ViewUser(webapp2.RequestHandler):
 		nickname=user.id.nickname()
 		currentUser = AppUser.getUser()
 		
+		if users.get_current_user():
+			url = users.create_logout_url(self.request.uri)
+			url_linktext = 'Logout'
+		else:
+			url = users.create_login_url(self.request.uri)
+			url_linktext = 'Login'
+			
 		template_values = {
-			'nickname':nickname,
-			'user':user,
-			'events':[]	
+			'url': url,
+			'url_linktext': url_linktext,
+			'nickname': nickname,
+			'user': user,
+			'events': []	
 		}
 		
 		#Displays:
@@ -35,4 +44,3 @@ class ViewEvent(webapp2.RequestHandler):
 	def get(self):
 		eventKey=self.request.path[6:] #Chops off the end of the request path to get the user key
 		event=Event.get(eventKey)
-		templateValues
