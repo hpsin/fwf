@@ -7,34 +7,29 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<h1> Friends with Food </h1>
+				<div id="message">
+				<center>{{ message }}</center>
+				</div>
+				<center><img src="../images/header.jpg" height="300" width="300"></center>
 				<div id="links">
-					<a href= "{{ user.getUserLink }}" >Your Profile</a> - 
-					<a href="/">Home</a> -
+					<a href="/">Home</a> |
+					<a href= "{{ user.getUserLink }}" >Your Profile</a> | 
 					<a href = "/Make"> Make an Event!</a>
 				</div>
-				<div id="login">
-					- <a href="{{ url }}">{{ url_linktext }}</a>
-				</div>
 			</div>
-			<div id="create_block">
+			<div id="profile_block">
 				{{ nickname }}
 				<blockquote> Good Events: {{ user.goodEventsCount }} </blockquote>
 				{% if user.verified %}
 				<br>Verified
 				{% endif %}
-				<blockquote> Bad Events: {{ user.badEventsCount }} </blockquote>
 			</div>
-
-			<div id="events_block">
-				<h2>Events</h2>
-
-			</div>
-		
-
 			<div id="footer">
 				<p> Friends with Food &copy; 2013 </p>
 			</div>
+		</div>
+		<div id="login">
+			<a href="{{ url }}" style="align:right">{{ url_linktext }}</a>
 		</div>
 	</body>
 </html>

@@ -6,15 +6,14 @@
 	<body>
 		<div id="container">
 			<div id="header">
+				<div id="message">
 				<center>{{ message }}</center>
-				<h1> Friends with Food </h1>
-				<div id="links">
-					<a href= "{{ user.getUserLink }}" >Your Profile</a> - 
-					<a href="/">Home</a> -
-					<a href = "/Make"> Make an Event!</a>
 				</div>
-				<div id="login">
-					- <a href="{{ url }}">{{ url_linktext }}</a>
+				<center><img src="../images/header.jpg" height="300" width="300"></center>
+				<div id="links">
+					<a href="/">Home</a> |
+					<a href= "{{ user.getUserLink }}" >Your Profile</a> | 
+					<a href = "/Make"> Make an Event!</a>
 				</div>
 			</div>
 		
@@ -27,7 +26,10 @@
 			</div>
 			<div id="footer">
 			<p> Friends with Food &copy; 2013 </p>
-			</div>
+			</div>	
+		</div>
+		<div id="login">
+			<a href="{{ url }}" style="align:right">{{ url_linktext }}</a>
 		</div>
     </body>
 </html>

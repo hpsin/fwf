@@ -11,24 +11,25 @@
 	<body>
 		<div id="container">
 			<div id="header">
-				<h1> Friends with Food </h1>
-				<div id="links">
-					<a href= "{{ user.getUserLink }}" >Your Profile</a> - 
-					<a href="/">Home</a> -
-					<a href = "/Make"> Make an Event!</a>
+				<div id="message">
+				<center>{{ message }}</center>
 				</div>
-				<div id="login">
-					- <a href="{{ url }}">{{ url_linktext }}</a>
+				<center><img src="../images/header.jpg" height="300" width="300"></center>
+				<div id="links">
+					<a href="/">Home</a> |
+					<a href= "{{ user.getUserLink }}" >Your Profile</a> | 
+					<a href = "/Make"> Make an Event!</a>
 				</div>
 			</div>
 			<div id="create_block">
+				<div id="form-wrapper">
 				<form action="/Make" method="post">
-				<fieldset>
-					<legend>Personal information:</legend>
-					Event Name: <input type="text" name="name" size="30" /><br />
-					Location: <input type="text" name="location" size="30" /> Host: <input type="text" name="host" size="30" /><br />
-					Date: <input type="text" name="date" id="datepicker" size="30" />
-					Start Time:
+					<h1>Event info:</h1>
+					Event Name: <br /><input type="text" name="name" size="30" /><br />
+					Location: <br /><input type="text" name="location" size="30" /><br />
+					Host: <br /><input type="text" name="host" size="30" /><br />
+					Date: <br /><input type="text" name="date" id="datepicker" size="30" /><br />
+					Start Time:<br />
 						<select name="start">
 							<option value="00:00" selected="">12 am</option>
 							<option value="00:30">12:30 am</option>
@@ -78,8 +79,8 @@
 							<option value="22:30">10:30 pm</option>
 							<option value="23:00">11:00 pm</option>
 							<option value="23:30">11:30 pm</option>
-						</select>
-					 End Time: <select name="end">
+						</select><br />
+					 End Time:<br /> <select name="end">
 							<option value="00:00" selected="">12 am</option>
 							<option value="00:30">12:30 am</option>
 							<option value="01:00">1:00 am</option>
@@ -129,15 +130,18 @@
 							<option value="23:00">11:00 pm</option>
 							<option value="23:30">11:30 pm</option>
 						</select><br />
-					<textarea name="description" rows="3" cols="60">Enter event info here</textarea>
+					<textarea name="description" rows="3" cols="30">Enter event info here</textarea>
 					<br />
 					<input type="submit" value="Submit" />
-				</fieldset>
 				</form>
+				</div>
 			</div>
 			<div id="footer">
 			<p> Friends with Food &copy; 2013 </p>
 			</div>
+		</div>
+		<div id="login">
+			<a href="{{ url }}" style="align:right">{{ url_linktext }}</a>
 		</div>
     </body>
 </html>
