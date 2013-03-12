@@ -12,6 +12,9 @@ class ViewUser(webapp2.RequestHandler):
 	def get(self):
 		userKey=self.request.path[6:] #Chops off the end of the request path to get the user key
 		user=AppUser.get_by_key_name(userKey)
+		if not user:
+			self.redirect('/?' + urllib.urlencode({'message':'Error: No such user found.'}))
+
 		nickname=user.id.nickname()
 		currentUser = AppUser.getUser()
 		
