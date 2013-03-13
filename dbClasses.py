@@ -143,4 +143,4 @@ class Event(db.Model):
 		</Event>"""
 
 	def getEventLink(self):
-		return '/?' + urllib.urlencode({'message':'''Event pages coming soon'''}) #Update to actual page.
+		return """/Event/"""+str(self.key()) #Update to actual page.

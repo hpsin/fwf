@@ -29,6 +29,7 @@ from eventInteraction import Attend
 from eventInteraction import Verify
 
 from Views import ViewUser
+from Views import ViewEvent
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -71,5 +72,6 @@ app = webapp2.WSGIApplication([('/',IntroPage),
 								('/Report', Report),
 								('/Attend', Attend),
 								('/Verify', Verify),
-								('/User/.*', ViewUser)],
+								('/User/.*', ViewUser),
+								('/Event/.*', ViewEvent)],
                               debug=True)
