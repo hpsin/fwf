@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2007 Google Inc.
+# Copyright 2013 Friends with Food
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ from eventInteraction import Attend
 from eventInteraction import Verify
 
 from Views import ViewUser
+from Views import ViewEvent
 
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -71,5 +72,6 @@ app = webapp2.WSGIApplication([('/',IntroPage),
 								('/Report', Report),
 								('/Attend', Attend),
 								('/Verify', Verify),
-								('/User/.*', ViewUser)],
+								('/User/.*', ViewUser),
+								('/Event/.*', ViewEvent)],
                               debug=True)

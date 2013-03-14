@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
-		<script src="js/gen_validatorv4.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div id="container">
@@ -18,20 +17,23 @@
 				</div>
 			</div>
 			<div id="create_block">
-				{{ nickname }}
-				<blockquote> Good Events: {{ user.goodEventsCount }} </blockquote>
-				{% if user.verified %}
+				{{ event.name }}
+				<i> <br>Courtesy of <a href="{{event.creator.getUserLink}}">{{event.creator.key.name}}</a></i>
+				<br>Location: {{event.location}}
+				<br>Time: {{event.dateStart.time}} - {{event.dateEnd.time}}
+				<br>Date: {{event.dateStart.date}}
+				{% if event.verified %}
 				<br>Verified
 				{% endif %}
-				<blockquote> Bad Events: {{ user.badEventsCount }} </blockquote>
+				{% if event.description %}
+				<br>Description:
+				<br>{{event.description}}
+				{% endif %}
+				{% if event.host %}
+				<br>
+				<br>Hosted by {{event.host}}
+				{% endif %}
 			</div>
-
-			<div id="events_block">
-				<h2>Events</h2>
-
-			</div>
-		
-
 			<div id="footer">
 				<p> Friends with Food &copy; 2013 </p>
 			</div>
